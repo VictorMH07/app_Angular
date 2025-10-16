@@ -1,27 +1,102 @@
 <!-- <h1>LOGIN WORKS¡</h1> -->
-<a routerLink="/">Volver al inicio</a>
+<div class="text-center mt-4">
+    <a routerLink="/" class="btn btn-outline-secondary"> ← Volver al inicio</a>
+</div> 
+<!-- <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" alt="Logo EcoMarket"> -->
 
-<div class="auth-card">
-    <!-- Encabezado -->
-    <div class="auth-header">
-        <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png" alt="Logo EcoMarket">
-        <h3>EcoMarket</h3>
-    </div>
+<div class="auth-card mx-auto mt-5 p-4 rounded-4 shadow-lg" style="max-width: 400px;">
+  <!-- Encabezado -->
+  <div class="text-center mb-4">
+    <img src="https://cdn-icons-png.flaticon.com/512/2909/2909763.png"
+         alt="Logo EcoMarket"
+         class="mb-2"
+         width="70">
+    <h3>EcoMarket</h3>
+  </div>
 
-    <!-- Formulario Login -->
-    <div class="p-3" id="login-form">
-        <form class="d-flex justify-content-center flex-column px-5" routerLink="/">
-            <div class="mb-3">
-                <label for="email-login" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control" id="email-login" placeholder="Ingrese su correo electronico">
-            </div>
-            <div class="mb-3">
-                <label for="password-login" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password-login" placeholder="Ingrese su contraseña">
-            </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-login text-white" style="min-width: 200px">Ingresar</button>
-            </div>
-        </form>
+  <!-- Formulario de Login -->
+  <div *ngIf="mostrarLogin; else registroForm">
+    <form (ngSubmit)="iniciarSesion()" #loginForm="ngForm">
+      <div class="mb-3">
+        <label for="emailLogin" class="form-label">Correo electrónico</label>
+        <input type="email"
+               id="emailLogin"
+               class="form-control"
+               name="emailLogin"
+               [(ngModel)]="emailLogin"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label for="passwordLogin" class="form-label">Contraseña</label>
+        <input type="password"
+               id="passwordLogin"
+               class="form-control"
+               name="passwordLogin"
+               [(ngModel)]="passwordLogin"
+               required>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success text-white">Ingresar</button>
+      </div>
+    </form>
+
+    <div class="text-center mt-3">
+      <button class="btn btn-link" (click)="toggleForms()">Crear una cuenta nueva</button>
     </div>
+  </div>
+
+  <!-- Formulario de Registro -->
+  <ng-template #registroForm>
+    <form (ngSubmit)="registrarse()" #registerForm="ngForm">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text"
+               id="nombre"
+               class="form-control"
+               name="nombre"
+               [(ngModel)]="nombre"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label for="emailRegistro" class="form-label">Correo electrónico</label>
+        <input type="email"
+               id="emailRegistro"
+               class="form-control"
+               name="emailRegistro"
+               [(ngModel)]="emailRegistro"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label for="passwordRegistro" class="form-label">Contraseña</label>
+        <input type="password"
+               id="passwordRegistro"
+               class="form-control"
+               name="passwordRegistro"
+               [(ngModel)]="passwordRegistro"
+               required>
+      </div>
+
+      <div class="mb-3">
+        <label for="confirmarPassword" class="form-label">Confirmar contraseña</label>
+        <input type="password"
+               id="confirmarPassword"
+               class="form-control"
+               name="confirmarPassword"
+               [(ngModel)]="confirmarPassword"
+               required>
+      </div>
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-success text-white">Registrarse</button>
+      </div>
+    </form>
+
+    <div class="text-center mt-3">
+      <button class="btn btn-link" (click)="toggleForms()">Ya tengo una cuenta</button>
+    </div>
+  </ng-template>
 </div>
