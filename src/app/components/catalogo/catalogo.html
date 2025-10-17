@@ -1,0 +1,18 @@
+<div class="catalogo-container">
+    <h2>Productos Disponibles</h2>
+    <hr>
+
+    <div class="productos">
+        <div class="producto-card" *ngFor="let producto of productos">
+            <img [src]="producto.imagen" [alt]="producto.nombre">
+            <h3>{{ producto.nombre }}</h3>
+            <p class="descripcion">{{ producto.descripcion}}</p>
+            <p class="precio">
+                <b>$ {{ producto.precio | number:'1-0-0' }} COP / {{ producto.unidad }}</b>
+            </p>
+            <button (click)="agregarAlCarrito(producto)">
+                Agregar
+            </button>
+        </div>
+    </div>
+</div>
