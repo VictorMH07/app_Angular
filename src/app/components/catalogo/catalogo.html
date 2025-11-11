@@ -1,18 +1,19 @@
-<div class="catalogo-container">
-    <h2>Productos Disponibles</h2>
-    <hr>
+<div class="container py-5">
+    <h2 class="text-center fw-bold mb-5">Productos Disponibles</h2>
 
-    <div class="productos">
-        <div class="producto-card" *ngFor="let producto of productos">
-            <img [src]="producto.imagen" [alt]="producto.nombre">
-            <h3>{{ producto.nombre }}</h3>
-            <p class="descripcion">{{ producto.descripcion}}</p>
-            <p class="precio">
-                <b>$ {{ producto.precio | number:'1-0-0' }} COP / {{ producto.unidad }}</b>
-            </p>
-            <button (click)="agregarAlCarrito(producto)">
-                Agregar
-            </button>
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-4 col-sm-6" *ngFor="let producto of productos; let i = index">
+            <div class="card product-card shadow-sm border-0 text-center">
+                <div class="card-img-container">
+                    <img [src]="producto.imagen" class="card-img-top" alt="{{ producto.nombre }}">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">{{ producto.nombre }}</h5>
+                    <p class="text-muted mb-2">{{ producto.descripcion }}</p>
+                    <p class="precio fw-bold text-success fs-5">{{ producto.precio | number: '1.0-0' }} COP / {{ producto.unidad }}</p>
+                    <button class="btn btn-success rounded-pill px-4 py-2 mt-2" (click)="agregarAlCarrito(producto)">Agregar</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
