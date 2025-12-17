@@ -1,11 +1,44 @@
-# Backend
+# ================= BACKEND (Flask) =================
 eco-backend/.venv/
+eco-backend/venv/
 eco-backend/__pycache__/
 eco-backend/instance/
 *.pyc
 .env
 
-# Frontend
+# ================= FRONTEND (Angular) =================
 eco-frontend/node_modules/
 eco-frontend/dist/
 eco-frontend/.angular/
+
+# Angular general
+/dist
+/tmp
+/out-tsc
+/.angular/cache
+/coverage
+
+# ================= NODE =================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# ================= IDEs =================
+.idea/
+.project
+.classpath
+.c9/
+.settings/
+*.sublime-workspace
+
+# ================= VS CODE =================
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# ================= SYSTEM =================
+.DS_Store
+Thumbs.db
