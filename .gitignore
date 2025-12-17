@@ -1,0 +1,11 @@
+# Backend
+eco-backend/.venv/
+eco-backend/__pycache__/
+eco-backend/instance/
+*.pyc
+.env
+
+# Frontend
+eco-frontend/node_modules/
+eco-frontend/dist/
+eco-frontend/.angular/
